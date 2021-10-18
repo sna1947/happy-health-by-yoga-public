@@ -16,6 +16,7 @@ import YogaDetails from './components/YogaDetails/YogaDetails';
 import initializeAuthentication from './Firebase/firebase.initialize';
 import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Banner from './components/Banner/Banner';
 
 initializeAuthentication();
 
@@ -26,6 +27,7 @@ function App() {
       <AuthProvider>
         <Router>
           <Header></Header>
+          
           <Switch>
             <Route exact path='/'>
               <Home></Home>
@@ -74,7 +76,7 @@ function App() {
 
           </Switch>
 
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
 
         </Router>
       </AuthProvider>

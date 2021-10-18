@@ -14,17 +14,25 @@ const githubProvider = new GithubAuthProvider();
 
 const auth = getAuth();
 const signInUsingGoogle =()=>{
-    signInWithPopup(auth, googleProvider)
-    .then(result=>{
-        const user = result.user;
-        console.log(result.user)
-        setUser(result.user)
-    })
-    .catch(error=>{
-        setError(error.message);
-    })
+  return  signInWithPopup(auth, googleProvider)
+    // .then(result=>{
+    //     const user = result.user;
+    //     console.log(result.user)
+    //     setUser(result.user)
+    // })
+    // .catch(error=>{
+    //     setError(error.message);
+    // })
 };
 
+// const signInUsingGithub=()=>{
+//     signInWithPopup(auth, githubProvider)
+//     .then(result=>{
+//         const user = result.user;
+//         console.log(result.user)
+//         setUser(result.user)
+//     })
+// };
 const signInUsingGithub=()=>{
     signInWithPopup(auth, githubProvider)
     .then(result=>{

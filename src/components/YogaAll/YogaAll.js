@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import Banner from '../Banner/Banner';
+import Footer from '../Footer/Footer';
 import Yoga from '../Yoga/Yoga';
 
 const YogaAll = () => {
@@ -11,7 +13,9 @@ const YogaAll = () => {
         .then(data => setYogaAll(data))
     },[]);
     return (
-        <div className='container'>
+       <div>
+           <Banner></Banner>
+            <div className='container'>
             <Row xs={1} md={3} >
             {
                 yogaall.map(yoga=><Yoga
@@ -21,6 +25,8 @@ const YogaAll = () => {
             }
             </Row>
         </div>
+        <Footer></Footer>
+       </div>
     );
 };
 
