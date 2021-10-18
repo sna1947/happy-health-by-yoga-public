@@ -1,0 +1,16 @@
+.yoga-details{
+    width: 500px;
+    height: 530px;
+    border: 1px solid gray;
+    margin: 10px;
+    margin-left: 350px;
+    border-radius: 10px;
+    background-color: rgb(219, 236, 193);
+
+}
+.yogaImgDtls{
+    width: 250px;
+}
+.card-bd{
+    background-color: rgb(252, 245, 180);
+}
