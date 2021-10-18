@@ -14,60 +14,67 @@ import Register from './components/Register/Register';
 import YogaAll from './components/YogaAll/YogaAll';
 import YogaDetails from './components/YogaDetails/YogaDetails';
 import initializeAuthentication from './Firebase/firebase.initialize';
+import AuthProvider from './Context/AuthProvider';
 
 initializeAuthentication();
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-          <Route exact path='/home'>
-          <YogaAll></YogaAll>
-          </Route>
-          <Route exact path='/yogaall'>
-           <YogaAll></YogaAll>
-          </Route>
 
-          <Route path='/yoga/:yogaId'>
-            <YogaDetails></YogaDetails>
-          </Route>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path='/'>
+              <Home></Home>
+            </Route>
+            <Route exact path='/home'>
+              <YogaAll></YogaAll>
+            </Route>
+            <Route exact path='/yogaall'>
+              <YogaAll></YogaAll>
+            </Route>
 
-          <Route path='/services'>
-          <YogaAll></YogaAll>
-          </Route>
+            <Route path='/yoga/:yogaId'>
+              <YogaDetails></YogaDetails>
+            </Route>
 
-          <Route path='/healthyeating'>
-            <HealthyEating></HealthyEating>
-          </Route>
+            <Route path='/services'>
+              <YogaAll></YogaAll>
+            </Route>
 
-          <Route path='/aboutus'>
-            <AboutUs></AboutUs>
-          </Route>
+            <Route path='/healthyeating'>
+              <HealthyEating></HealthyEating>
+            </Route>
 
-          <Route path='/notfound'>
+            <Route path='/aboutus'>
+              <AboutUs></AboutUs>
+            </Route>
+
+            <Route path='/login'>
+              <Login></Login>
+            </Route>
+            <Route path='/register'>
+              <Register></Register>
+            </Route>
+
+            {/* <Route path='/notfound'>
             <NotFound></NotFound>
-          </Route>
-          <Route path='/login'>
-            <Login></Login>
-          </Route>
-          <Route path='/signup'>
-            <Register></Register>
-          </Route>
+          </Route> */}
 
-          <Route path='*'>
-            <NotFound></NotFound>
-          </Route>
+            <Route path='*'>
+              <NotFound></NotFound>
+            </Route>
 
-        </Switch>
+          </Switch>
 
-        <Footer></Footer>
+          <Footer></Footer>
 
-      </Router>
+        </Router>
+      </AuthProvider>
+
+
     </div>
   );
 }
