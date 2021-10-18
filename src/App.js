@@ -15,6 +15,7 @@ import YogaAll from './components/YogaAll/YogaAll';
 import YogaDetails from './components/YogaDetails/YogaDetails';
 import initializeAuthentication from './Firebase/firebase.initialize';
 import AuthProvider from './Context/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 initializeAuthentication();
 
@@ -40,9 +41,13 @@ function App() {
               <YogaDetails></YogaDetails>
             </Route>
 
-            <Route path='/services'>
+            {/* <Route path='/services'>
               <YogaAll></YogaAll>
-            </Route>
+            </Route> */}
+
+            <PrivateRoute path='/services'>
+              <YogaAll></YogaAll>
+            </PrivateRoute>
 
             <Route path='/healthyeating'>
               <HealthyEating></HealthyEating>
