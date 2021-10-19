@@ -1,6 +1,6 @@
 import { useState } from "react"
 import initializeAuthencation from "../Firebase/firebase.initialize";
-import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider, onAuthStateChanged,signOut  } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider, onAuthStateChanged,signOut,createUserWithEmailAndPassword  } from "firebase/auth";
 import { useEffect } from "react";
 
 initializeAuthencation();
@@ -11,7 +11,7 @@ const  [error, setError] =useState('');
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
-
+// signIn Using Google =====================================================
 const auth = getAuth();
 const signInUsingGoogle =()=>{
   return  signInWithPopup(auth, googleProvider)
@@ -25,14 +25,18 @@ const signInUsingGoogle =()=>{
     // })
 };
 
-// const signInUsingGithub=()=>{
-//     signInWithPopup(auth, githubProvider)
+// signIn Using Email And Password=============================================
+
+// const signInUsingEmailAndPassword=()=>{
+//     signInWithEmailAndPassword(auth, email, password)
 //     .then(result=>{
 //         const user = result.user;
 //         console.log(result.user)
 //         setUser(result.user)
 //     })
 // };
+
+// signIn Using Github========================================================
 const signInUsingGithub=()=>{
     signInWithPopup(auth, githubProvider)
     .then(result=>{
@@ -41,6 +45,7 @@ const signInUsingGithub=()=>{
         setUser(result.user)
     })
 };
+
 
 
 //**log out section */

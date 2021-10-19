@@ -25,7 +25,7 @@ const YogaAll = () => {
             }
             </Row>
         </div>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
        </div>
     );
 };

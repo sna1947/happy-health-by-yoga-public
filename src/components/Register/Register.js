@@ -5,6 +5,8 @@ const Register = () => {
     return (
         <div>
         <h1> Please Register</h1>
+
+        
         <form >
             <input type="email" placeholder='enter your email' />
             <br />

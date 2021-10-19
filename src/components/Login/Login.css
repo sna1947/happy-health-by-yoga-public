@@ -1,0 +1,28 @@
+/* .logi-form{
+    display: flex;
+} */
+.google-subBtn{
+    border:ipx solid green;
+} 
+.form-log{
+    width: 300px;
+    padding: 30px;
+    margin: 80px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+.google-gitHub-subBtn{
+    border: 2px solid red;
+    width: 300px;
+    border-radius: 10px;
+    margin: 20px;
+}
+.userPass-form{
+    margin-top: 150px;
+    
+    width: 450px;
+    padding: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
