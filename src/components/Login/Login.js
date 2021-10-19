@@ -8,7 +8,7 @@ import './Login.css'
 
 const Login = () => {
 // const {signInUsingGoogle,signInUsingGithub} = useFirebase();
-const {signInUsingGoogle,signInUsingGithub, signInUsingEmailAndPassword, error} = useAuth();
+const {signInUsingGoogle,signInUsingGithub, loginUserWithEmailAndPassword } = useAuth();
 // console.log(useFirebase());
 const location = useLocation();
 const history = useHistory();
@@ -24,6 +24,7 @@ history.push(redirect_uri);
 // EMAIL AND PASSWORD SECTION=========================================
 const [email, setEmail]=useState('');
 const [password, setPassword]=useState('');
+const [error, setError]=useState('');
 
 const handelEmailChange =e=>{
     // console.log(e.target.value);
@@ -34,10 +35,14 @@ const handelPasswordChange =e=>{
     setPassword(e.target.value);
 };
 
-const handelRegistration =(event)=>{
+const handelRegistration =(e)=>{
+    e.preventDefault();
     console.log(email,password);
-    event.preventDefault()
-    signInUsingEmailAndPassword(email,password)
+    if(password.length < 6){
+        setError('Pls write minimum six cherecter')
+        return;
+    }
+    loginUserWithEmailAndPassword(email,password)
 }
     return (
         <div className='formAndLog '>
@@ -70,6 +75,7 @@ const handelRegistration =(event)=>{
                                 </div>
                             </div>
                         </div>
+                        <div className="row mb-3 text-danger">{error}</div>
                         <button type="submit" className="btn btn-primary">Log in</button>
                     </form>
                 </div>
