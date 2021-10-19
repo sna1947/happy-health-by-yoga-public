@@ -51,9 +51,9 @@ function App() {
               <YogaAll></YogaAll>
             </PrivateRoute>
 
-            <Route path='/healthyeating'>
+            <PrivateRoute path='/healthyeating'>
               <HealthyEating></HealthyEating>
-            </Route>
+            </PrivateRoute>
 
             <Route path='/aboutus'>
               <AboutUs></AboutUs>

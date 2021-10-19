@@ -8,7 +8,7 @@ import './Login.css'
 
 const Login = () => {
 // const {signInUsingGoogle,signInUsingGithub} = useFirebase();
-const {signInUsingGoogle,signInUsingGithub} = useAuth();
+const {signInUsingGoogle,signInUsingGithub, signInUsingEmailAndPassword, error} = useAuth();
 // console.log(useFirebase());
 const location = useLocation();
 const history = useHistory();
@@ -37,11 +37,11 @@ const handelPasswordChange =e=>{
 const handelRegistration =(event)=>{
     console.log(email,password);
     event.preventDefault()
-   
+    signInUsingEmailAndPassword(email,password)
 }
     return (
         <div className='formAndLog '>
-            
+            <p>{error}</p>
                 <div className='userPass-form mx-5 '>
                     <form onSubmit={handelRegistration}>
                         <h2 className='text-primary'>Pls Login</h2>

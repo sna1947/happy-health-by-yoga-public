@@ -1,7 +1,8 @@
 import { useState } from "react"
 import initializeAuthencation from "../Firebase/firebase.initialize";
-import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider, onAuthStateChanged,signOut,createUserWithEmailAndPassword  } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider, onAuthStateChanged,signOut,signInWithEmailAndPassword  } from "firebase/auth";
 import { useEffect } from "react";
+
 
 initializeAuthencation();
 
@@ -25,16 +26,20 @@ const signInUsingGoogle =()=>{
     // })
 };
 
-// signIn Using Email And Password=============================================
+// signIn Using Email And Password===================================
 
-// const signInUsingEmailAndPassword=()=>{
-//     signInWithEmailAndPassword(auth, email, password)
-//     .then(result=>{
-//         const user = result.user;
-//         console.log(result.user)
-//         setUser(result.user)
-//     })
-// };
+const signInUsingEmailAndPassword=(email, password)=>{
+    signInWithEmailAndPassword(auth, email, password)
+    .then(result=>{
+        const user = result.user;
+        console.log(result.user)
+        setUser(result.user)
+    })
+    .catch(error=>{
+            setError(error.message);
+        })
+
+};
 
 // signIn Using Github========================================================
 const signInUsingGithub=()=>{
@@ -45,8 +50,6 @@ const signInUsingGithub=()=>{
         setUser(result.user)
     })
 };
-
-
 
 //**log out section */
 const logOut =()=>{
@@ -70,7 +73,8 @@ return{
     error,
     logOut,
     signInUsingGoogle,
-    signInUsingGithub
+    signInUsingGithub,
+    signInUsingEmailAndPassword
 }
 
 }
