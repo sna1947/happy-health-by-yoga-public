@@ -4,7 +4,7 @@
 #### It is a nice website to know about yoga,  with instractor and patient with blog facility for every one. It provides very nice user experience to use this website.
 
 
-### Features
+### Features of Happy Health by yoga
 
 - Any Fitness  Service 
 - Providing services through good quality instractor
