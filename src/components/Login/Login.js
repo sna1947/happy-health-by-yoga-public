@@ -9,7 +9,7 @@ import './Login.css'
 const Login = () => {
     // const {signInUsingGoogle,signInUsingGithub} = useFirebase();
     const { signInUsingGoogle, signInUsingGithub, registerUserWithEmailAndPassword,loginUserWithEmailAndPassword } = useAuth();
-    
+
     // console.log(useFirebase());
     const location = useLocation();
     const history = useHistory();
@@ -23,11 +23,8 @@ const Login = () => {
             })
     };
 
-
-
-    
-
     // EMAIL AND PASSWORD SECTION=========================================
+    const [name, setName] =useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -38,6 +35,10 @@ const Login = () => {
     const toggleLogin = e => {
         // console.log(e.target.checked)
         setIsLogin(e.target.checked)
+    }
+
+    const handelNameChange = e =>{
+        setName(e.target.value)
     }
 
     const handelEmailChange = e => {
@@ -63,28 +64,30 @@ const Login = () => {
 
         if (isLogin) {
             loginUserWithEmailAndPassword(email,password)
+            history.push(redirect_uri);
+          
         } else {
              registerUserWithEmailAndPassword(email,password)
-             setIsLogin(true)
-        }
-
-        
+             history.push(redirect_uri);
+        } 
     }
 
-
-
-
-
-
-
     return (
-        <div className='formAndLog '>
-
-
-            <p>{error}</p>
-            <div className='userPass-form mx-5 '>
+        <div className='formAndLog  d-flex justify-content-center align-items-center  '>
+            
+            <div className='userPass-form mx-5 mb-5'>
                 <form onSubmit={handelRegistration}>
                     <h2 className='text-primary'>Please {isLogin ? 'Login' : 'Register'} </h2>
+                    
+                    
+                    {!isLogin && <div className="row mb-3">
+                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Name</label>
+                       
+                        <div className="col-sm-10">
+                            <input onBlur={handelNameChange} type="Name" className="form-control" id="inputEmail3" required />
+                        </div>
+                    </div>}
+
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                         {/* EMAIL section====================== */}
@@ -114,13 +117,13 @@ const Login = () => {
                 </form>
             </div>
 
-            <div className='google-gitHub-subBtn bg-warning mx-5 '>
+            <div className='google-gitHub-subBtn bg-warning mx-5 p-3 '>
                 <h1>Or Login With ...</h1>
-                <button onClick={handelGoogleLogin}> Google Sign In</button>
+                <button className='m-2 rounded bg-info fw-bold text-danger' onClick={handelGoogleLogin}> Google Sign In</button>
 
-                <button onClick={signInUsingGithub}> Github Sign In</button>
+                <button className='m-2 rounded bg-info fw-bold text-danger' onClick={signInUsingGithub}> Github Sign In</button>
                 <br />
-                <Link to='/register'>New User?</Link>
+                {/* <Link to='/register'>New User?</Link> */}
             </div>
         </div>
     );

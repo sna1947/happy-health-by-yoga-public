@@ -37,6 +37,7 @@ const signInUsingGoogle =()=>{
         console.log(result)
         setUser(result.user)
         setError('');
+        
     })
     .catch(error=>{
             setError(error.message);
@@ -51,6 +52,7 @@ signInWithEmailAndPassword(auth, email, password)
 .then(result=>{
     setUser(result.user)
     setError('');
+   
 })
   .catch((error) => {
     setError(error.message);
@@ -67,8 +69,6 @@ const signInUsingGithub=()=>{
         setUser(result.user)
     })
 };
-
-
 
 //**log out section */
 const logOut =()=>{

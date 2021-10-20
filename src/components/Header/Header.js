@@ -15,6 +15,7 @@ const Header = () => {
             <Navbar fixed="top" className='nav-br ' bg="dark" variant="dark">
                 <Container>
                     <Logo className='img-fluid'></Logo>
+                    <h1 className='text-info m-2'>Happy Health by Yoga</h1>
                     <Nav className="ms-auto"> 
                     <Nav.Link as={Link} to="/home">HOME</Nav.Link> 
                     {/* <Nav.Link as={Link} to="/yogaall">yoga all</Nav.Link>  */}
@@ -22,7 +23,7 @@ const Header = () => {
                     <Nav.Link as={Link} to="/healthyeating">HEALTHY EATING</Nav.Link> 
                     <Nav.Link as={Link} to="/aboutus">ABOUT US</Nav.Link> 
                     {/* <Nav.Link as={Link} to="/login">LOGIN</Nav.Link>  */}
-                    <Nav.Link as={Link} to="/Register">REGISTER</Nav.Link>
+                    {/* <Nav.Link as={Link} to="/Register">REGISTER</Nav.Link> */}
 
                     {
                             user.email && <span style={{ color: 'red' }}>hello: {user.displayName} </span>
