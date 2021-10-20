@@ -4,13 +4,13 @@ import './Register.css'
 
 const Register = () => {
     return (
-        <div className='register container mb-5 bg-light p-3 '>
+        <div className='register container  bg-light p-3 '>
         
             <form className='form container'>
-                <h2 className='text-primary'>Pls Register</h2>
+                <h2 className='text-primary mt-5'>Register: Create Account</h2>
 
            {/* Name section====================== */}
-                <div className="row mb-3">
+                <div className="row  mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Name</label>
                     <div className="col-sm-10">
                         <input type="email" className="form-control" id="inputEmail3" required />
@@ -46,7 +46,7 @@ const Register = () => {
                 <button type="submit" className="btn btn-primary">Register</button>
             </form>
 
-        <Link  to='/login'>Already Register ? </Link>
+        <Link  to='/login'> <button className=' m-3 bg-warning p-2 rounded text-danger fw-bold'> Already Register ?</button>   </Link>
     </div>
     );
 };

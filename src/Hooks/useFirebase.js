@@ -1,6 +1,6 @@
 import { useState } from "react"
 import initializeAuthencation from "../Firebase/firebase.initialize";
-import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider, onAuthStateChanged,signOut,  createUserWithEmailAndPassword   } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider, onAuthStateChanged,signOut,  createUserWithEmailAndPassword ,signInWithEmailAndPassword  } from "firebase/auth";
 import { useEffect } from "react";
 
 
@@ -9,6 +9,8 @@ initializeAuthencation();
 const useFirebase = () =>{
 const [user, setUser] = useState({});
 const  [error, setError] =useState('');
+
+
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -28,27 +30,45 @@ const signInUsingGoogle =()=>{
 
 // signIn Using Email And Password===================================
 
-const loginUserWithEmailAndPassword=(email, password)=>{
+ const registerUserWithEmailAndPassword=(email, password)=>{
     createUserWithEmailAndPassword(auth, email, password)
     .then(result=>{
         const user = result.user;
         console.log(result)
         setUser(result.user)
+        setError('');
     })
     .catch(error=>{
             setError(error.message);
         })
-};
+      
+  };
+
+//   login function start 
+const loginUserWithEmailAndPassword = (email, password) => {
+    const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+.then(result=>{
+    setUser(result.user)
+    setError('');
+})
+  .catch((error) => {
+    setError(error.message);
+  });
+}
+
+
+
 
 // signIn Using Github========================================================
 const signInUsingGithub=()=>{
     signInWithPopup(auth, githubProvider)
     .then(result=>{
-        const user = result.user;
-        console.log(result.user)
         setUser(result.user)
     })
 };
+
+
 
 //**log out section */
 const logOut =()=>{
@@ -73,6 +93,7 @@ return{
     logOut,
     signInUsingGoogle,
     signInUsingGithub,
+    registerUserWithEmailAndPassword,
     loginUserWithEmailAndPassword
 }
 

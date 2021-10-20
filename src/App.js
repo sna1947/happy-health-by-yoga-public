@@ -30,7 +30,7 @@ function App() {
           
           <Switch>
             <Route exact path='/'>
-              <Home></Home>
+            <YogaAll></YogaAll>
             </Route>
             <Route exact path='/home'>
               <YogaAll></YogaAll>
