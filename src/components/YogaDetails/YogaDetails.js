@@ -16,7 +16,7 @@ const YogaDetails = () => {
         })
     },[yogaId]);
     return (
-        <div className='card-bd' >
+        <div className='card-bd m-5' >
         <Card.Body className='yoga-details'>
             {/* <Card.Title> <h4>Yoga: {name}</h4></Card.Title> */}
             <Card.Text>
